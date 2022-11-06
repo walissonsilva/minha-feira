@@ -1,17 +1,17 @@
-import React from "react";
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import { NavigationContainer } from "@react-navigation/native";
-import { HomeScreen } from "../screens/Home";
+import { DarkTheme, NavigationContainer } from "@react-navigation/native";
+import React from "react";
 import { CategoriesScreen } from "../screens/Categories";
+import { HomeScreen } from "../screens/Home";
 
 const Drawer = createDrawerNavigator();
 
 export default function AppRoutes() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={DarkTheme}>
       <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Notifications" component={CategoriesScreen} />
+        <Drawer.Screen name="Listas de Compras" component={HomeScreen} />
+        <Drawer.Screen name="Categorias" component={CategoriesScreen} />
       </Drawer.Navigator>
     </NavigationContainer>
   );
