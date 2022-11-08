@@ -3,8 +3,11 @@ import {
   Button,
   Fab,
   FlatList,
+  Flex,
+  Icon,
   Input,
   Modal,
+  Pressable,
   Spinner,
   Text,
   Tooltip,
@@ -59,7 +62,7 @@ export function HomeScreen() {
   if (isLoading)
     return (
       <Box flex="1" justifyContent="center" alignItems="center">
-        <Spinner />
+        <Spinner size="lg" />
       </Box>
     );
 
@@ -77,13 +80,34 @@ export function HomeScreen() {
         data={shoppingLists}
         keyExtractor={(item) => String(item.id)}
         renderItem={({ item }) => (
-          <Box p="3" mt="3" borderColor="gray.200" borderWidth={1} rounded="md">
-            <Text color="gray.700" fontWeight="medium">
-              {item.title}
-            </Text>
-          </Box>
+          <Flex
+            flexDir="row"
+            alignItems="center"
+            justifyContent="space-between"
+            borderColor="gray.300"
+            borderWidth={1}
+            rounded="md"
+            p="3"
+            mt="3"
+          >
+            <Pressable flex="1" onPress={() => console.log("Opa!")}>
+              <Text color="gray.700" fontWeight="medium" fontSize="md">
+                {item.title}
+              </Text>
+            </Pressable>
+
+            <Box width="6" display="flex" alignItems="center">
+              <Icon
+                size="sm"
+                color="red.400"
+                as={<Feather name="trash" />}
+                onPress={() => console.log("Deletar")}
+              />
+            </Box>
+          </Flex>
         )}
         height="100%"
+        width="100%"
       />
 
       <Modal
