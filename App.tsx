@@ -1,14 +1,13 @@
 import { NativeBaseProvider, StatusBar } from "native-base";
 import "react-native-gesture-handler";
 import AppRoutes from "./src/routes/App.routes";
-import { theme } from "./src/styles/theme";
 
 export default function App() {
   return (
-    <NativeBaseProvider theme={theme}>
+    <NativeBaseProvider>
       <AppRoutes />
       <StatusBar
-        barStyle="light-content"
+        barStyle="dark-content"
         backgroundColor="transparent"
         translucent
       />
