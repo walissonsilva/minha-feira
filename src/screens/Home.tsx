@@ -1,3 +1,4 @@
+import { useBottomTabBarHeight } from "@react-navigation/bottom-tabs";
 import {
   Box,
   Button,
@@ -26,6 +27,7 @@ export function HomeScreen() {
   const [newListTitle, setNewListTitle] = useState("");
   const [isModalAddListOpened, setIsModalAddListOpened] = useState(false);
   const [shoppingLists, setShoppingLists] = useState([] as ShoppingList[]);
+  const bottomTabHeight = useBottomTabBarHeight();
 
   async function handleCreateNewShoppingList() {
     if (!newListTitle) {
@@ -73,6 +75,7 @@ export function HomeScreen() {
           icon={<Feather name="plus" color="white" size={20} />}
           onPress={() => setIsModalAddListOpened(true)}
           colorScheme="blue"
+          marginBottom={bottomTabHeight}
         />
       </Tooltip>
 
